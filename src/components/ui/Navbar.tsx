@@ -15,3 +15,5 @@ export const Navbar = () => {
 		</AppBar>
 	);
 };
+
+// Excellent communication skills with both technical and non-technical audiences
