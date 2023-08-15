@@ -3,6 +3,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import "./globals.css";
 import { Roboto } from "next/font/google";
 import { darkTheme, lightTheme } from "@/themes";
+import { UIProvider } from "../context/ui/";
 
 const roboto = Roboto({
 	weight: ["100", "300", "500", "700"],
@@ -30,10 +31,12 @@ export default function RootLayout({
 				/>
 				<title>OpenJira</title>
 			</head>
-			<ThemeProvider theme={darkTheme}>
-				<CssBaseline />
-				<body className={roboto.className}>{children}</body>
-			</ThemeProvider>
+			<UIProvider>
+				<ThemeProvider theme={darkTheme}>
+					<CssBaseline />
+					<body className={roboto.className}>{children}</body>
+				</ThemeProvider>
+			</UIProvider>
 		</html>
 	);
 }
