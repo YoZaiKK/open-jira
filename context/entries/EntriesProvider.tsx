@@ -13,19 +13,19 @@ const ENTRIES_INITIAL_STATE: EntriesState = {
 	entries: [
 		{
 			_id: uuidv4(),
-			descrption: "Test",
+			description: "Pendiente: Seleccionar el color de la app",
 			status: "pending",
 			createdAt: Date.now(),
 		},
 		{
 			_id: uuidv4(),
-			descrption: "Test2",
+			description: "In-progress: Seleccionar el color de la app",
 			status: "in-progress",
 			createdAt: Date.now()-1000000,
 		},
 		{
 			_id: uuidv4(),
-			descrption: "Test3",
+			description: "Finished: Seleccionar el color de la app",
 			status: "finished",
 			createdAt: Date.now() - 100000,
 		},
