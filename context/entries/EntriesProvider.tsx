@@ -21,7 +21,7 @@ const ENTRIES_INITIAL_STATE: EntriesState = {
 			_id: uuidv4(),
 			description: "In-progress: Seleccionar el color de la app",
 			status: "in-progress",
-			createdAt: Date.now()-1000000,
+			createdAt: Date.now() - 1000000,
 		},
 		{
 			_id: uuidv4(),
@@ -35,10 +35,23 @@ const ENTRIES_INITIAL_STATE: EntriesState = {
 export const EntriesProvider: FC = ({ children }) => {
 	const [state, dispatch] = useReducer(entriesReducer, ENTRIES_INITIAL_STATE);
 
+	const addNewEntry = (description: string) => {
+		const newEntry: Entry = {
+			_id: uuidv4(),
+			description,
+			createdAt: Date.now(),
+			status: "pending",
+		};
+
+		dispatch({ type: "[Entry] - Add-Entry", payload: newEntry });
+	};
+
 	return (
 		<EntriesContext.Provider
 			value={{
 				...state,
+				//Methods
+				addNewEntry,
 			}}
 		>
 			{children}
